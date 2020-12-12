@@ -1,11 +1,9 @@
 /******************************************************************************
-
-Esther Lee
+Esther Lee, Austin Marshburn
 ELET 1102
 Project 3: Toll Roads
 This code determines how much money you have on your quick pass based on the day
 and how many exits you've passed. 
-
 *******************************************************************************/
 #include <stdio.h>
 #include <string.h>
@@ -20,16 +18,13 @@ int main()
     double endExit;
     double peopleInCar;
     double exitTotal;
-    
     double startMoney = 33.33;
     double totalCharge;
     double remainingMoney;
-    
     double weekday;
     double weekendOrHoliday;
     
     printf("You currently have $%lf in your Quick Pass.\n", startMoney);
-    
     printf("Is it a holiday or a weekend?(y/n): ");
     scanf("%s", whichDay);
     
@@ -48,56 +43,56 @@ int main()
     {
         peopleInCar = .50;
         printf("\n\nYou get a $.50 discount");
-    }else
+    }
+    else
     {
         peopleInCar = 0;
     }
-    
     if(strcmp(whichDay, "n") == 0)
     {
         if(militaryTime >= 0000 && militaryTime <= 559)
         {
             weekday = 1.55;
-            
-        }else if(militaryTime >= 600 && militaryTime <= 959)
+        }
+        else if(militaryTime >= 600 && militaryTime <= 959)
         {
             weekday = 2.65;
-            
-        }else if(militaryTime >= 1000 && militaryTime <= 1759)
+        }
+        else if(militaryTime >= 1000 && militaryTime <= 1759)
         {
             weekday = 2.35;
-            
-        }else if(militaryTime >= 1800 && militaryTime <= 2459)
+        }
+        else if(militaryTime >= 1800 && militaryTime <= 2459)
         {
             weekday = 1.25;
         }
         
         remainingMoney = startMoney - ((weekday + exitTotal) - peopleInCar);
         totalCharge = weekday + exitTotal;
-        
-    }else if(strcmp(whichDay, "y") == 0)
+    }
+    else if(strcmp(whichDay, "y") == 0)
     {
         if(militaryTime >= 0000 && militaryTime <= 759)
         {
             weekendOrHoliday = 1;
-            
-        }else if(militaryTime >= 800 && militaryTime <= 959)
+        }
+        else if(militaryTime >= 800 && militaryTime <= 959)
         {
             weekendOrHoliday = 2.05;
-            
-        }else if(militaryTime >= 1200 && militaryTime <= 1559)
+        }
+        else if(militaryTime >= 1200 && militaryTime <= 1559)
         {
             weekendOrHoliday = 2.45;
-            
-        }else if(militaryTime >= 1600 && militaryTime <= 1859)
+        }
+        else if(militaryTime >= 1600 && militaryTime <= 1859)
         {
             weekendOrHoliday = 2.60;
-            
-        }else if(militaryTime >= 1900 && militaryTime <= 2159)
+        }
+        else if(militaryTime >= 1900 && militaryTime <= 2159)
         {
             weekendOrHoliday = 2.05;
-            
-        }else if(militaryTime >= 2200 && militaryTime <= 2459)
+        }
+        else if(militaryTime >= 2200 && militaryTime <= 2459)
         {
             weekendOrHoliday = .55;
         }
@@ -112,7 +107,8 @@ int main()
     if(militaryTime >= 1300)
     {
         stdTime = militaryTime - 1200;
-    }else
+    }
+    else
     {
         stdTime = militaryTime;
     }
@@ -120,4 +116,3 @@ int main()
     
     return 0;
 }
-
